@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap')
+
+// Tipografia
+// ---------------------------------------------------------
+// Trata das questões de tipografia da aplicação. Aplica os estilos globais de
+// tipografia conforme o tema, o arquivo ./theme.scss, cria os placeholders e
+// resolve os problemas de padronização dos browsers com relação a tipografia.
+
+// Definição do tamanho das fontes dos elementos.
+h1
+  font-size: 4rem
+h2
+  font-size: 3rem
+h3
+  font-size: 2rem
+h4, th
+  font-size: .875rem
+h5, th, p
+  font-size: .75rem
+h6
+  font-size: .6875rem
+
+h1, h2, h3, h4, h5, h6
+  font-family: $base-font-family
+  font-weight: bold
+  color: rgba($base-color, 0.8)
+
+dt, th
+  font-family: $base-font-family
+  font-size: .9375rem
+
+body
+  font-size:   $base-font-size
+  font-weight: $base-font-weight
+  font-family: $base-font-family
+
+input, textarea
+  font-family: $base-font-family
+
+input, textarea, select
+  font-size: 100%
+
+p
+  line-height: 1.44
+  color: rgba($base-color, 0.8)
