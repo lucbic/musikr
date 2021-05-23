@@ -1,26 +1,20 @@
 <template lang="pug">
-div(class="bacon")
-  flash-card(:note="note")
+div(class="flash-card")
+  h1(class="note") {{ note }}
 </template>
 
 <script>
-import FlashCard from '../components/FlashCard'
-
 export default {
-  components: {
-    FlashCard
-  },
-
-  data: () => ({
-    note: 'A'
-  })
+  props: {
+    note: String
+  }
 }
 </script>
 
 <style lang="sass">
-.bacon
-  height: 800px
-  width: 1000px
+.flash-card
+  height: 200px
+  width: 160px
   display: flex
   justify-content: center
   align-items: center

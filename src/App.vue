@@ -8,6 +8,7 @@ import IntervalsContainer from './containers/Intervals'
 
 export default {
   name: 'App',
+
   components: {
     IntervalsContainer
   }
@@ -19,7 +20,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
-  color: $base-text-color
+  color: $base-color
   width: 100vw
   height: 100vh
   display: flex
