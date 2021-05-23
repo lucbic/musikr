@@ -5,6 +5,7 @@ div(class="tab-selector")
     v-for="(val, key) in tabs"
     :key="key"
     :highlighted="selected == key"
+    @click.native="$emit('change', key)"
   ) {{ val }}
 
 </template>
@@ -29,9 +30,13 @@ export default {
 <style lang="sass">
 .tab-selector
   display: flex
-  margin: 0 -10px
+  flex-wrap: wrap
+  justify-content: center
+  margin: -5px
 
   > .btn
-    margin: 0 10px
+    width: 150px
+    margin: 5px
+    flex-shrink: 0
 
 </style>
