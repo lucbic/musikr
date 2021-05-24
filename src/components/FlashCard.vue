@@ -56,7 +56,25 @@ export default {
   
   &.-error
     background-color: $error-color
+    animation: error 0.3s cubic-bezier(.36,.07,.19,.97) both
 
   &.-success
     background-color: $success-color
+    animation: success 0.3s cubic-bezier(.36,.07,.19,.97) both
+
+  @keyframes error
+    10%, 90%
+      transform: translate(-1px, 0)
+    20%, 80%
+      transform: translate(2px, 0)
+    30%, 50%, 70%
+      transform: translate(-3px, 0)
+    40%, 60%
+      transform: translate(4px, 0)
+
+  @keyframes success
+    33%, 66%
+      transform: scale(1.05)
+    0%, 50%, 100%
+      transform: scale(1)
 </style>
