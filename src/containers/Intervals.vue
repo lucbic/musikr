@@ -4,7 +4,7 @@ div(class="intervals-container")
     class="tabs"
     :tabs="tabs"
     :selected="selectedInterval"
-    @change="selectedInterval = $event"
+    @change="selectedInterval = +$event"
   )
 
   div(class="content")
@@ -38,7 +38,8 @@ export default {
   },
 
   data: () => ({
-    questionNote: {},
+    questionNote: getRandomItem(notes),
+    initialQuestionNote: {},
     tabs: intervals,
     selectedInterval: 1,
     notes,
@@ -53,9 +54,11 @@ export default {
 
     shuffle () {
       this.shuffling = true
+      this.initialQuestionNote = this.questionNote
       let shuffles = 0
+      let newNote = {}
 
-      while (shuffles < 100) {
+      while (shuffles <= 100) {
         setTimeout(() => {
           this.questionNote = getRandomItem(this.notes)
         }, Math.random() * shuffles * 10)
@@ -91,7 +94,6 @@ export default {
   },
 
   mounted () {
-    this.shuffle()
     this.setAnswerCards()
   }
 }
