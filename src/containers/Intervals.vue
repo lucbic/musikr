@@ -4,14 +4,14 @@ div(class="intervals-container")
     class="tabs"
     :tabs="tabs"
     :selected="selectedInterval"
-    @change="selectedInterval = +$event"
+    @change="onIntervalChange"
   )
 
   div(class="content")
     flash-card(
       :note="questionNote.note"
       size="large"
-      @click="onMainCardClick"
+      @click="reset"
     )
 
   div(class="selector-wrapper")
@@ -48,8 +48,9 @@ export default {
   }),
 
   methods: {
-    onMainCardClick () {
+    reset () {
       this.shuffle()
+      this.setAnswerCards()
     },
 
     shuffle () {
@@ -66,7 +67,6 @@ export default {
         shuffles++
       }
 
-      this.setAnswerCards()
       this.shuffling = false
     },
 
@@ -81,8 +81,9 @@ export default {
 
       card.status = success ? 'success' : 'error'
 
-      if (success)
-        setTimeout(() => { this.shuffle() }, 1000)
+      if (success) {
+        setTimeout(this.reset, 1000)
+      }
     },
 
     checkAnswer ({ note, number }) {
@@ -90,6 +91,11 @@ export default {
       const selected = numberNotes[number]     
  
       return answer === selected
+    },
+
+    onIntervalChange (interval) {
+      this.selectedInterval = +interval
+      this.setAnswerCards()
     }
   },
 
