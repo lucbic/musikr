@@ -30,7 +30,9 @@ export default {
 
   &.-highlighted
     background-color: $base-color
+    border: transparent
+
     > h4
-      color: $base-white
+      color: $base-background
 
 </style>

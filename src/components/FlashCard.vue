@@ -49,6 +49,7 @@ export default {
   cursor: pointer
   user-select: none
   flex-shrink: 0
+  will-change: transform
 
   &.-large
     height: 200px
